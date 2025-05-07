@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Welcome, {{ current_user.username }}!</h1>
+<ul>
+  <li><a href="{{ url_for('customers') }}">Manage Customers</a></li>
+  <li><a href="{{ url_for('equipment_list') }}">Manage Equipment</a></li>
+  <li><a href="#">Manage Purchase Orders</a></li>
+  <li><a href="#">Manage Work Orders</a></li>
+  <li><a href="#">Manage Calibration Sessions</a></li>
+  <li><a href="#">Manage Uncertainties</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.name.data else 'New' }} Customer</h2>
+<form method="post">
+    {{ form.csrf_token }}
+    {{ form.name.label }} {{ form.name }}
+    {{ form.contact_person.label }} {{ form.contact_person }}
+    {{ form.email.label }} {{ form.email }}
+    {{ form.phone.label }} {{ form.phone }}
+    {{ form.submit }}
+</form>
+{% endblock %}

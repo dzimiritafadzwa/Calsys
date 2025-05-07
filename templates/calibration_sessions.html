@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Calibration Sessions</h2>
+<a href="{{ url_for('new_cs') }}">Add New Session</a>
+<table>
+  <tr><th>Instrument</th><th>WO Number</th><th>Start</th><th>End</th><th>Results</th><th>Actions</th></tr>
+  {% for cs in calibration_sessions %}
+  <tr>
+    <td>{{ cs.equipment.name }}</td>
+    <td>{{ cs.work_order.wo_number }}</td>
+    <td>{{ cs.start_time }}</td>
+    <td>{{ cs.end_time }}</td>
+    <td>{{ cs.results }}</td>
+    <td>
+      <a href="{{ url_for('edit_cs', id=cs.id) }}">Edit</a>
+      <form action="{{ url_for('delete_cs', id=cs.id) }}" method="post" class="delete-form" style="display:inline;">
+        {{ csrf_token() }}
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.instrument_id.data else 'New' }} Calibration Session</h2>
+<form method="post">
+  {{ form.csrf_token }}
+  <div>{{ form.instrument_id.label }}<br>{{ form.instrument_id() }}</div>
+  <div>{{ form.work_order_id.label }}<br>{{ form.work_order_id() }}</div>
+  <div>{{ form.start_time.label }}<br>{{ form.start_time() }}</div>
+  <div>{{ form.end_time.label }}<br>{{ form.end_time() }}</div>
+  <div>{{ form.results.label }}<br>{{ form.results(rows=3) }}</div>
+  <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}

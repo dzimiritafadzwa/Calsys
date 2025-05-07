@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.name.data else 'New' }} Equipment</h2>
+<form method="post">
+  {{ form.csrf_token }}
+  <div>
+    {{ form.name.label }}<br>{{ form.name(size=32) }}
+  </div>
+  <div>
+    {{ form.serial_number.label }}<br>{{ form.serial_number(size=32) }}
+  </div>
+  <div>
+    {{ form.description.label }}<br>{{ form.description(rows=3) }}
+  </div>
+  <div>
+    {{ form.reference_instrument_id.label }}<br>{{ form.reference_instrument_id() }}
+  </div>
+  <div>
+    {{ form.submit() }}
+  </div>
+</form>
+{% endblock %}

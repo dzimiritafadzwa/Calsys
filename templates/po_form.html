@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.po_number.data else 'New' }} Purchase Order</h2>
+<form method="post">
+  {{ form.csrf_token }}
+  <div>{{ form.po_number.label }}<br>{{ form.po_number() }}</div>
+  <div>{{ form.date.label }}<br>{{ form.date() }}</div>
+  <div>{{ form.customer_id.label }}<br>{{ form.customer_id() }}</div>
+  <div>{{ form.equipments.label }}<br>{{ form.equipments(size=5) }}</div>
+  <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}

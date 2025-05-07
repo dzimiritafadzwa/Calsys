@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.wo_number.data else 'New' }} Work Order</h2>
+<form method="post">
+  {{ form.csrf_token }}
+  <div>{{ form.wo_number.label }}<br>{{ form.wo_number() }}</div>
+  <div>{{ form.date.label }}<br>{{ form.date() }}</div>
+  <div>{{ form.purchase_order_id.label }}<br>{{ form.purchase_order_id() }}</div>
+  <div>{{ form.technician_id.label }}<br>{{ form.technician_id() }}</div>
+  <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}

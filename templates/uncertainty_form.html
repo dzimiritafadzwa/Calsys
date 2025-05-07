@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>{{ 'Edit' if form.session_id.data else 'New' }} Uncertainty Record</h2>
+<form method="post">
+  {{ form.csrf_token }}
+  <div>{{ form.session_id.label }}<br>{{ form.session_id() }}</div>
+  <div>{{ form.description.label }}<br>{{ form.description(rows=2) }}</div>
+  <div>{{ form.value.label }}<br>{{ form.value() }}</div>
+  <div>{{ form.unit.label }}<br>{{ form.unit() }}</div>
+  <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}
